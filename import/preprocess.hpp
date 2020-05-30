@@ -23,9 +23,9 @@ class preprocess {
     std::vector<data *> *validation_data;
     std::map<uint8_t, int>digit_map;
 
-    constexpr float train_data_size = 0.80; // Train data size percentage
-    constexpr float test_data_size = 0.15; // Test data size percentage
-    constexpr float val_data_size = 0.5; // Validation data size percentage
+    constexpr float train_data_pct = 0.80; // Train data size percentage
+    constexpr float test_data_pct = 0.15; // Test data size percentage
+    constexpr float val_data_pct = 0.5; // Validation data size percentage
     int digits; // number of classes in data
     int size; // feature vector size
 

@@ -16,6 +16,8 @@ class data {
 
 
 public:
+    data();
+    ~data();
     void set_features(std::vector<uint8_t>*);
     void append(uint8_t);
     void set_label(uint8_t);
