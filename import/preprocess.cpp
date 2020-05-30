@@ -109,10 +109,47 @@ void preprocess::split_data(){
             count++;
         }
     }
+    std::cout << "Training Data: " << training_data->size() << "\n"
+    << "Test Data: " << test_data->size() << "\n"
+    << "Validation Data: " << validation_data->size() << std:endl;
+
 }
 
-void preprocess::count_digits();
+void preprocess::count_digits(){
+    int temp = 0;
+    for(size_t i=0; i< data_vector->size(); i++){
+        if(digit_map.find(data_vector->at(i)->get_label()) == digit_map.end()){
+            digit_map[data_vector->at(i)->get_label()] == temp;
+            data_vector->at(i)->set_enumerator(temp);
+            temp++;
+        }
+    }
+    class_size = temp;
+}
 
-uint32_t preprocess::transform_endian(const unsigned char*);
+uint32_t preprocess::transform_endian(const unsigned char* bytes){
+    return (uint32_t) ((bytes[0] << 24) |
+                        (bytes[1] << 16) |
+                        (bytes[2] << 8) |
+                        (bytes[3]));
+}
 
-std::vector<data *> * preprocess::get_data();
+std::vector<data *> * preprocess::get_data(std::string type){
+    if (type == "train"){
+        return training_data;
+    }else if(type == "test"){
+        return test_data;
+    }else if(type == "val"){
+        return validation_data;
+    }
+}
+
+
+int main(){
+    preprocess *import = new preprocess();
+    import->read_feature("data/train-images.idx3-ubyte");
+    import->read_labels("data/train-images.idx1-ubyte");
+    import->split_data();
+    import->count_digits();
+    return 0;
+}
