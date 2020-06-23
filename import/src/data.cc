@@ -5,7 +5,7 @@
 #include "data.hpp"
 
 data::data(){
-    this.features = new std::vector<uint8_t>;
+    this->features = new std::vector<uint8_t>;
 }
 data::~data(){
 
@@ -23,15 +23,15 @@ void data::set_label(uint8_t label_value){
 void data::set_enumerator(int enum_label){
     enumerator = enum_label;
 }
-int get_length(){
+int data::get_length(){
     return features->size();
 }
-uint8_t get_label(){
+uint8_t data::get_label(){
     return label;
 }
-uint8_t get_enumerator(){
+uint8_t data::get_enumerator(){
     return enumerator;
 }
-std::vector<uint8_t> * get_features(){
-    return features
+std::vector<uint8_t> * data::get_features(){
+    return features;
 }

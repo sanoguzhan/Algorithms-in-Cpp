@@ -4,9 +4,12 @@
 #ifndef ML_ALGORITHMS_IN_CPP_DATA_HPP
 #define ML_ALGORITHMS_IN_CPP_DATA_HPP
 
+#include <iostream>
+#include <sstream>
 #include <vector>
 #include "stdint.h"
 #include "stdio.h"
+#include <sstream>
 
 
 class data {
