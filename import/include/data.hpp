@@ -16,7 +16,7 @@ class data {
     std::vector<uint8_t> *features;
     uint8_t label;
     int enumerator;
-
+    double distance;
 
 public:
     data();
@@ -25,7 +25,7 @@ public:
     void append(uint8_t);
     void set_label(uint8_t);
     void set_enumerator(int);
-
+    void set_distance(double);
     int get_length();
     uint8_t get_label();
     uint8_t get_enumerator();

@@ -28,7 +28,6 @@ class preprocess {
     static constexpr float test_data_pct = 0.15; // Test data size percentage
     static constexpr float val_data_pct = 0.5; // Validation data size percentage
     int digits; // number of classes in data
-    int size; // feature vector size
 
 
 public:
