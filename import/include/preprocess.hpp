@@ -26,7 +26,7 @@ class preprocess {
 
     static constexpr float train_data_pct = 0.80; // Train data size percentage
     static constexpr float test_data_pct = 0.15; // Test data size percentage
-    static constexpr float val_data_pct = 0.5; // Validation data size percentage
+    static constexpr float val_data_pct = 0.05; // Validation data size percentage
     int digits; // number of classes in data
 
 

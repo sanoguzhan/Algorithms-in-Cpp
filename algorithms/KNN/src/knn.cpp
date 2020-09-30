@@ -91,9 +91,10 @@ double knn::calculate_distance(data* query, data* input){
     }
 #ifdef EUCLID
     for(unsigned i =0; i < query->get_length(); i++){
-        distance = pow(query->get_features()->at(i) - input->get_features()->at(i),2);
+        distance += pow(query->get_features()->at(i) - input->get_features()->at(i),2);
     }
     distance = sqrt(distance);
+    return distance;
 #elif defined MANHATTAN
 #endif
     return distance;
@@ -108,10 +109,10 @@ double knn::validator(){
             count++;
         }
         indx++;
-        std::cout << "Performance at iteration " << indx << "." << (((float) count*100) / ((float)indx));
+        std::cout << "Performance at iteration: " << indx  << " "<<(((double)count*100.0) / ((double)indx)) << "%" << std::endl;
     }
-    double performance = (((double ) count*100) / ((double )validation->size()));
-    std::cout << "For k:" << k  << "\n" <<"Final Validation Performance " << performance;
+    double performance = (((double ) count*100) / ((double)validation->size()));
+    std::cout << "For k:" << k  << "\n" <<"Final Validation Performance " << performance << std::endl;
     return performance;
 }
 double knn::tester(){
@@ -142,11 +143,11 @@ int main(void){
     float accuracy=0;
     float best_accuracy =0;
     int best_k = 1;
-    for (int i = 0; i <= 4; i++) {
+    for (int i = 1; i <= 4; i++) {
         if (i ==1){
             knearest->set_k(i);
             accuracy =knearest->validator();
-            best_k = k;
+            best_k = i;}
             else{
                 knearest->set_k(i);
                 accuracy =knearest->validator();
@@ -157,7 +158,7 @@ int main(void){
             }
 
         }
-    }
+
     knearest->set_k(best_k);
     knearest->tester();
     return 0;

@@ -81,7 +81,7 @@ void preprocess::split_data(){
     int test_size =  data_vector->size() * test_data_pct;
     int validation_size = data_vector->size() * val_data_pct;
 
-    short count=0; // Training Data
+    long count=0; // Training Data
     while(count < train_size){
         int indx = rand() % data_vector->size();
         if(index.find(indx) == index.end()){
@@ -103,11 +103,13 @@ void preprocess::split_data(){
 
     count=0; // Validation Data
     while(count < validation_size){
+
         int indx = rand() % data_vector->size();
         if(index.find(indx) == index.end()){
             validation_data->push_back(data_vector->at(indx));
             index.insert(indx);
             count++;
+
         }
     }
     std::cout << "Training Data: " << training_data->size() << "\n"
@@ -126,7 +128,7 @@ void preprocess::count_digits(){
         }
     }
     digits = temp;
-    std::cout << "Number of unique classes" << digits << std::endl;
+    std::cout << "Number of unique classes: " << digits << std::endl;
 }
 
 uint32_t preprocess::transform_endian(const unsigned char* bytes){
