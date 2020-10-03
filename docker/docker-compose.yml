@@ -7,9 +7,6 @@ services:
       context: .
       target: runner
       dockerfile: Dockerfile
-    environment: 
-      - IMPORT_ROOT=/code/import
-      - ENVIRONMENT=/code
     volumes:
       - ..:/code
       - ../data:/data 
