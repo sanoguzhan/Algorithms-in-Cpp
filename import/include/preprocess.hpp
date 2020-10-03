@@ -42,7 +42,7 @@ public:
     uint32_t transform_endian(const unsigned char* bytes);
 
     std::vector<data *> * get_data(std::string type); // Retrieves data [training, test, validation]
-
+    int get_count();
 
 };
 

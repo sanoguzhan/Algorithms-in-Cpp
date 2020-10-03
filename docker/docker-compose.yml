@@ -1,0 +1,17 @@
+version: "3.7"
+
+services:
+  ml-runner:
+    image: ubuntu:18.04
+    build: 
+      context: .
+      target: runner
+      dockerfile: Dockerfile
+    environment: 
+      - IMPORT_ROOT=/code/import
+      - ENVIRONMENT=/code
+    volumes:
+      - ..:/code
+      - ../data:/data 
+    user: ${UID}:${GID}
+    

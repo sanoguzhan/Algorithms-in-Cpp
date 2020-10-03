@@ -7,7 +7,7 @@ LIB_DATA := libdata.so
 
 all : $(LIB_DATA)
 
-$(LIB_DATA) : libdir objdir obj/preprocess.o obj/data.o
+$(LIB_DATA) : libdir objdir obj/preprocess.o obj/data.o obj/utils.o
 	$(CC) $(CFLAGS) -o $(IMPORT_ROOT)/lib/$(LIB_DATA) $(IMPORT_ROOT)/obj/*.o
 	rm -r $(IMPORT_ROOT)/obj
 
@@ -22,6 +22,9 @@ obj/preprocess.o: $(SRC)/preprocess.cpp
 
 obj/data.o: $(SRC)/data.cpp
 	$(CC) -fPIC $(CFLAGS) -o $(IMPORT_ROOT)/obj/data.o -I$(INCLUDE_DIR) -c $(SRC)/data.cpp
+
+obj/utils.o: $(SRC)/utils.cpp
+	$(CC) -fPIC $(CFLAGS) -o $(IMPORT_ROOT)/obj/utils.o -I$(INCLUDE_DIR) -c $(SRC)/utils.cpp
 
 clean:
 	rm -r $(IMPORT_ROOT)/lib

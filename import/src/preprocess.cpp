@@ -13,7 +13,19 @@ preprocess::preprocess(){
 
 }
 preprocess::~preprocess(){
-    //free memory
+    // Free Memory on each Vector
+    for(std::vector<data *>::iterator it=data_vector->begin(); it < data_vector->end(); it++){
+        delete *it;
+    }
+    for(std::vector<data *>::iterator it=training_data->begin(); it < training_data->end(); it++){
+        delete *it;
+    }
+    for(std::vector<data *>::iterator it=test_data->begin(); it < test_data->end(); it++){
+        delete *it;
+    }
+    for(std::vector<data *>::iterator it=validation_data->begin(); it < validation_data->end(); it++){
+        delete *it;
+    }
 }
 
 void preprocess::read_feature(std::string path){
@@ -148,7 +160,9 @@ std::vector<data *> * preprocess::get_data(std::string type){
     }
     return nullptr;
 }
-
+int preprocess::get_count(){
+    return digits;
+}
 
 //int main(){
 //    preprocess *import = new preprocess();

@@ -51,19 +51,9 @@ void knn::find_k_nearest(data *query){
         }
     }
 }
-void knn::set_training(std::vector<data *> *vec){
-    training = vec;
-}
-void knn::set_test(std::vector<data *> * vec){
-    test = vec;
-}
-void knn::set_validation(std::vector<data *> * vec){
-    validation = vec;
-}
 void knn::set_k(int k){
     this->k = k;
 }
-
 float knn::predict(){
     std::map<uint8_t, int> frequency;
     for(int i=0; i< neighbors->size(); i++){
@@ -144,6 +134,7 @@ int main(void){
     float best_accuracy =0;
     int best_k = 1;
     for (int i = 1; i <= 4; i++) {
+        std::cout << "Current i " << i << std::endl;
         if (i ==1){
             knearest->set_k(i);
             accuracy =knearest->validator();
