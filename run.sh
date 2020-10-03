@@ -14,13 +14,13 @@ if [[ -z $ENVIRONMENT ]]; then
         echo "Running KNN alogithm "
         cd import && make clean; make
         cd ../algorithms/KNN && make clean; make
-        ./main
+        ./knn
     fi
     if [[ $model_2 == $NAME ]]; then
         echo "Running KMEANS alogithm "
         cd import && make clean; make
         cd ../algorithms/KMEANS && make clean; make
-        ./main
+        ./kmeans
     fi
     
 fi
