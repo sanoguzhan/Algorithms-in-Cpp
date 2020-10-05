@@ -9,19 +9,20 @@ read NAME
 if [[ -z $ENVIRONMENT ]]; then
     export ENVIRONMENT=$PWD
     export IMPORT_ROOT=$PWD/import
-
-    if [[ $model_1 == $NAME ]]; then
-        echo "Running KNN alogithm "
-        cd import && make clean; make
-        cd ../algorithms/KNN && make clean; make
-        ./knn
-    fi
-    if [[ $model_2 == $NAME ]]; then
-        echo "Running KMEANS alogithm "
-        cd import && make clean; make
-        cd ../algorithms/KMEANS && make clean; make
-        ./kmeans
-    fi
-    
 fi
+
+if [[ $model_1 == $NAME ]]; then
+    echo "Running KNN algorithm "
+    cd import && make clean; make
+    cd ../algorithms/KNN && make clean; make
+    ./knn
+fi
+if [[ $model_2 == $NAME ]]; then
+    echo "Running KMEANS algorithm "
+    cd import && make clean; make
+    cd ../algorithms/KMEANS && make clean; make
+    ./kmeans
+fi
+    
+
 

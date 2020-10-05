@@ -41,6 +41,7 @@ __Keywords__: C++, Machine Learning, STL, Algorithms, Docker, Bash Script
 
 * cd docker
 * docker-compose build
+* docker-compose run ml-runner bash
 * run `chmod +x run.sh && ./run.sh`
 * It will prompt for the algorithm name 
 
